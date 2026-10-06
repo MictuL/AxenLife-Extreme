@@ -7,4 +7,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base: './',
   plugins: [react()],
+  // En desarrollo, /api se reenvía al servidor de Stripe (npm run server).
+  server: {
+    proxy: { '/api': 'http://localhost:4242' },
+  },
 });
